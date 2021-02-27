@@ -90,20 +90,13 @@ library("rgdal")
 library("goftest")
 
 #setting variables to be the names of the file locations
-tlstif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/tls.tif"
-lidartif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/lidar.tif"
-minimumtif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/minimum.tif"
-maximumtif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/maximum.tif"
-averagetif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/average.tif"
-tintif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/tin.tif"
-hightidetif =
-  "C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/RASTER/hightidenew.tif"
+tlstif = "../RASTER/tls.tif"
+lidartif = "../RASTER/lidar.tif"
+minimumtif = "../RASTER/minimum.tif"
+maximumtif = "../RASTER/maximum.tif"
+averagetif = "../RASTER/average.tif"
+tintif = "../RASTER/tin.tif"
+hightidetif = "../RASTER/hightidenew.tif"
 
 # making rasters out of the file locations and immediately
 # turning them into matrices
@@ -117,24 +110,13 @@ tin = as.matrix(raster(tintif))
 hightide = as.matrix(raster(hightidetif))
 
 #reading in the shape files
-upper =
-  readOGR("C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/SHAPEFILES",
-          "upper")
-lower =
-  readOGR("C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/SHAPEFILES",
-          "lower")
-clearing =
-  readOGR("C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/SHAPEFILES",
-          "clearing")
-light =
-  readOGR("C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/SHAPEFILES",
-          "light")
-shadow =
-  readOGR("C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/SHAPEFILES",
-          "shadow")
-water =
-  readOGR("C:/Users/Hcraw/OneDrive/Documents/ArcGIS/Capstone/SHAPEFILES",
-          "water")
+upper = readOGR("../SHAPEFILES", "upper")
+lower = readOGR("../SHAPEFILES", "lower")
+clearing = readOGR("../SHAPEFILES", "clearing")
+light = readOGR("../SHAPEFILES", "light")
+shadow = readOGR("../SHAPEFILES", "shadow")
+water = readOGR("../SHAPEFILES", "water")
+
 #making a blank raster with the same extent of the ones we are using
 shape.raster = raster(nrow = 370, ncol = 623)
 extent(shape.raster) = extent(raster(tlstif))
